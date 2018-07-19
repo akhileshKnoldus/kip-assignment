@@ -1,5 +1,7 @@
 package com.knoldus.akhilesh
 
+case class Pet(pet:String)
+
 class PatternMatching {
 
 def returnWhatYouGet(valType: Any)={
@@ -11,7 +13,7 @@ case i: Int=> s"thanks for the int: $i"
 case f:Float=> s"thanks for the float: $f"
 case arr1: Array[Int]=> s"an array of int: ${arr1.mkString(",")}"
 case arr2: Array[String]=> s"an array of string: ${arr2.mkString(",")}"
-case p: Pet=> s"${p.name} is a good dog "
+case p: Pet=> s"${p.pet} is a good dog "
 case list: List[Any]=> s" thanks for the list: ${list.toString()}"
 case m: Map[_,_]=> m.toString
 case _=> "other input"
@@ -19,7 +21,7 @@ case _=> "other input"
 }
 
 }
-/*
+
 object PatternMatching extends App {
 
   val patternMatching = new PatternMatching
@@ -32,4 +34,4 @@ object PatternMatching extends App {
   patternMatching.returnWhatYouGet(Pet("tommy"))
   patternMatching.returnWhatYouGet(Map(1 -> 'a', 2 -> 'b'))
 
-}*/
+}

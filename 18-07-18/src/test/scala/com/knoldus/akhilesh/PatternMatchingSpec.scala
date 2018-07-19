@@ -3,9 +3,8 @@ package com.knoldus.akhilesh
 import org.scalatest.FunSuite
 
 class PatternMatchingSpec extends FunSuite{
-  //val pattern = new PatternMatching
+
   val pattern=new PatternMatching
-  //val objCaseClass = Pet("Tommy", "Dog")
 
   test("Testing for String Value") {
   val actualResult = pattern.returnWhatYouGet("AKHILESH")

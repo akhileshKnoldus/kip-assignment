@@ -13,9 +13,10 @@ class ListOperation {
     case _ :: tail => 1 + length(tail)
 
   }
-  def reverse[A](l: List[A]): List[A] = l match {
-    case h :: tail => reverse(tail) ::: List(h)
-    case Nil => Nil
+  def lastNth[A](n: Int, l:List[A]): A = l match {
+    case tail if (tail.length == n) => tail.head
+    case _ :: tail => lastNth(n, tail)
+    case _ => throw new NoSuchElementException
   }
 
   def min(xs: List[Int]): Int = xs match {
@@ -24,7 +25,7 @@ class ListOperation {
     case x :: tail => x.min(min(tail))
   }
 
-}
+}/*
 
 object  ListOperationTest extends  App{
 
@@ -32,6 +33,6 @@ object  ListOperationTest extends  App{
   val listOperation=new ListOperation
      println(listOperation.max(list))
      println(listOperation.length(list))
-     println(listOperation.reverse(list))
+     println(listOperation.lastNth(4,list))
      println( listOperation.min(list))
-}
+}*/

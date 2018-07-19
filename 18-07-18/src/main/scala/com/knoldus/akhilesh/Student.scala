@@ -4,10 +4,10 @@ package com.knoldus.akhilesh
 
 case class Student(id :Int, name :String, division :String, section :String)
 
-case class ScoreCard(id :Int, subject1 :Float, subject2 :Float, subject3 :Float, totalMarks :Float)
+case class ScoreCard(id :Int, subject1 :Double, subject2 :Double, subject3 :Double, totalMarks :Double)
 
 object ScoreCard{
-  def apply(id :Int, subject1 :Float, subject2 :Float, subject3 :Float) :ScoreCard = {
+  def apply(id :Int, subject1 :Double, subject2 :Double, subject3 :Double) :ScoreCard = {
     val totalMarks = subject1 + subject2 + subject3
     new ScoreCard(id, subject1, subject2, subject3, totalMarks)
 
@@ -32,7 +32,7 @@ class ReportCard {
       throw new IllegalArgumentException
   }
 
-  def findSubjectTopper(subject :String , listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): (Int, String, Float, Float, Float, Float) = {
+  def findSubjectTopper(subject :String , listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): (Int, String, Double, Double, Double, Double) = {
 
     val subjectTopper = subject match {
       case "subject1" => listOfScoreCard.sortWith (_.subject1 > _.subject1).head
@@ -63,12 +63,12 @@ class ReportCard {
 }*/
 
 
-case class Student(id :Int, name :String, division :String, section :String)
+case class Student(id :Int, name :String, division :Int, section :Char)
 
-case class ScoreCard(id :Int, subject1 :Float, subject2 :Float, subject3 :Float, totalMarks :Float)
+case class ScoreCard(id :Int, subject1 :Double, subject2 :Double, subject3 :Double, totalMarks :Double)
 
 object ScoreCard{
-  def apply(id :Int, subject1 :Float, subject2 :Float, subject3 :Float) :ScoreCard = {
+  def apply(id :Int, subject1 :Double, subject2 :Double, subject3 :Double) :ScoreCard = {
     val totalMarks = subject1 + subject2 + subject3
     new ScoreCard(id, subject1, subject2, subject3, totalMarks)
 
@@ -78,7 +78,7 @@ object ScoreCard{
 class ReportCard {
 
 
-  def findFirstThreeToppers(listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): List[Any] = {
+  def firstThreeToppers(listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): List[Any] = {
 
     if(listOfStudents.size >=3) {
       val topperList = listOfScoreCard.sortWith(_.totalMarks > _.totalMarks).take(3).map(_.id)
@@ -93,7 +93,7 @@ class ReportCard {
       throw new IllegalArgumentException
   }
 
-  def findSubjectTopper(subject :String , listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): (Int, String, Float, Float, Float, Float) = {
+  def subjectTopper(subject :String , listOfStudents: List[Student], listOfScoreCard: List[ScoreCard]): (Int, String, Double, Double, Double, Double) = {
 
     val subjectTopper = subject match {
       case "subject1" => listOfScoreCard.sortWith (_.subject1 > _.subject1).head
