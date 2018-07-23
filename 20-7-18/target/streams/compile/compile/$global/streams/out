@@ -1,0 +1,6 @@
+[0m[[0m[31merror[0m] [0m[0m/home/knoldus/kip-assignment/20-7-18/src/main/scala/com/knoldus/akhilesh/EmailParsing.scala:8:36: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m    val email = user + "@" + domain}[0m
+[0m[[0m[31merror[0m] [0m[0m                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
