@@ -7,14 +7,13 @@ object Run extends  App {
   val directoryaccessor= new DirectoryProblem
 
  // println(directoryaccessor.pathExtractor("/home/knoldus/folder1"))
-
-  val  listOfFiles=Future{
-
-    directoryaccessor.pathExtractor("/home/knoldus/folder1")}
-  listOfFiles.onComplete {
+  Thread.sleep(7000)
+  val  listOfFiles=directoryaccessor.pathExtractor("/home/knoldus/folder1")
+   println(s".....$listOfFiles")
+  /*listOfFiles.onComplete {
     case Success(result) => println(result)
     case Failure(ex) => print(ex.getMessage)
   }
-
+*/
 
 }

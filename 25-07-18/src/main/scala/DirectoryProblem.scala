@@ -1,7 +1,7 @@
 import java.io.File
 
 import scala.concurrent.Future
-import scala.util.{Failure, Success}
+
 import scala.concurrent.ExecutionContext.Implicits.global
 
 class DirectoryProblem {
