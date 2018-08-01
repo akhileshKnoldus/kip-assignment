@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/knoldus/kip-assignment/31-07-18/src/test/scala/ttt/play/TicTacToeSpec.scala:24:106: ';' expected but ',' found.[0m
+[0m[[0m[31merror[0m] [0m[0m      test ! Play(PlayStep(2,1), system.actorOf(Props[Game]), PlayStep(3,1), system.actorOf(Props[Game])), Play(PlayStep(1,1), system.actorOf(Props[Game]))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
