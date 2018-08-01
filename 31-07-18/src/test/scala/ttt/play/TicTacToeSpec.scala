@@ -38,7 +38,9 @@ class TicTacToeSpec() extends TestKit(ActorSystem("MySpec")) with ImplicitSender
 
       gameRef  ! PlayStep(1, 1)
       gameRef  ! PlayStep(2, 2)
-      gameRef  ! PlayStep(1, 1
+      gameRef  ! PlayStep(1, 1)
+      expectMsgAllClassOf(classOf[TicTacToeMap])
+
 
     }
 

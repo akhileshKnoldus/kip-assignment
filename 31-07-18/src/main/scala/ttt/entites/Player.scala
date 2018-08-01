@@ -1,7 +1,65 @@
 package ttt.entites
 
-import akka.actor.{Actor, ActorRef, PoisonPill}
-import ttt.entites
+import akka.actor.{Actor, ActorRef}
+
+class Player extends Actor with TicTacToeMapper {
+
+  override def receive: PartialFunction[Any, Unit] = {
+    case Play(playStep, actor) => actor ! playStep
+    case ticTacToeMap: TicTacToeMap => printMapInArray(ticTacToeMap.map)
+    case placeAlreadyFilled: PlaceAlreadyFilled => print("Oh! This place is taken.")
+    //case go: Boolean => sender() ! PoisonPill
+    case GameOver => println(" Game over ")
+  }
+
+}
+
+class Game extends Actor with TicTacToeLogic {
+
+  var map = Array(0,0,0,0,0,0,0,0,0)
+
+  override def receive: PartialFunction[Any, Unit] = {
+    case PlayStep(index, player) => {
+
+      if((index-1)<0 || index-1>9){
+        println("Invalid State")
+        //println(TicTacToeMap(map))
+        sender() ! TicTacToeMap(map)
+
+      }else if(map(index-1)!=0){
+        println("Place is allready Filled")
+
+        //sender() ! PlaceAlreadyFilled
+        sender() ! TicTacToeMap(map)
+
+      }else{
+        map(index-1)=player
+
+        if(isGameOver(map)){
+          println("Game Over")
+          // sender() ! isGameOver(map)
+          sender() ! TicTacToeMap(map)
+          sender()! GameOver
+        }
+        else
+          sender() ! TicTacToeMap(map)
+      }
+    }
+  }
+
+}
+
+sealed trait Message
+
+case class Play(playStep: PlayStep, actorRef: ActorRef) extends Message
+
+case class PlayStep(index: Int, player: Int) extends Message
+
+case class TicTacToeMap(map: Array[Int]) extends Message
+
+case class PlaceAlreadyFilled(place:Int) extends Message
+
+case object GameOver extends Message
 
 trait TicTacToeMapper {
   def printMapInArray(elements:Array[Int]):Unit = {
@@ -15,7 +73,6 @@ trait TicTacToeMapper {
     }
   }
 }
-
 
 trait TicTacToeLogic {
   def isGameOver(map: Array[Int]): Boolean = {
@@ -37,69 +94,4 @@ trait TicTacToeLogic {
         })
     validTriples.reduce((a,b) => a || b)
   }
-}
-
-
-
-sealed trait Message
-
-case class Play(playStep: PlayStep, actorRef: ActorRef) extends Message
-
-case class PlayStep(index: Int, player: Int) extends Message
-
-case class TicTacToeMap(map: Array[Int]) extends Message
-
-case class PlaceAlreadyFilled(place:Int) extends Message
-
-case object GameOver extends Message
-
-
-
-class Player extends Actor with TicTacToeMapper {
-
-  override def receive: PartialFunction[Any, Unit] = {
-    case Play(playStep, actor) => actor ! playStep
-    case ticTacToeMap: TicTacToeMap => printMapInArray(ticTacToeMap.map)
-    case placeAlreadyFilled: PlaceAlreadyFilled => print("Oh! This place is taken.")
-    //case go: Boolean => sender() ! PoisonPill
-     case GameOver => println(" Game over ")
-  }
-
-}
-
-class Game extends Actor with TicTacToeLogic {
-
-  var map = Array(0,0,0,0,0,0,0,0,0)
-
-
-  override def receive: PartialFunction[Any, Unit] = {
-    case PlayStep(index, player) => {
-
-      if((index-1)<0 || index-1>9){
-        println("Invalid State")
-        //println(TicTacToeMap(map))
-        sender() ! TicTacToeMap(map)
-
-      }else if(map(index-1)!=0){
-        println("Place is allready Filled")
-
-        //sender() ! PlaceAlreadyFilled
-        sender() ! TicTacToeMap(map)
-
-      }else{
-        map(index-1)=player
-
-        if(isGameOver(map)){
-          println("Game Over")
-         // sender() ! isGameOver(map)
-        sender() ! TicTacToeMap(map)
-          sender()! GameOver
-        }
-        else
-          sender() ! TicTacToeMap(map)
-      }
-    }
-  }
-
-
 }

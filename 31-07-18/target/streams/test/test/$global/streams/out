@@ -1,10 +1,8 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(TicTacToeSpec, org.scalatest.tools.Framework$$anon$1@5e1ba039, false, [SuiteSelector])[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(akkaDemo.EchoActorSpec, org.scalatest.tools.Framework$$anon$1@5e1ba039, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 second, 262 milliseconds.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(TicTacToeSpec, org.scalatest.tools.Framework$$anon$1@29ac5259, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 second, 240 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 3[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 2, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 3, failed 0, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	TicTacToeSpec[0m
-[0m[[0m[0mdebug[0m] [0m[0m	akkaDemo.EchoActorSpec[0m
