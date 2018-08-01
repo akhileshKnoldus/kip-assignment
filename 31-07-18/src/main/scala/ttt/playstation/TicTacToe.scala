@@ -14,8 +14,10 @@ object TicTacToe extends App {
 
   while(true) {
     println("Enter index for Player 1:")
+
     playerOne ! Play(PlayStep(scala.io.StdIn.readInt(),1), game)
     println("Enter index for Player 2:")
+
     playerOne ! Play(PlayStep(scala.io.StdIn.readInt(),2), game)
   }
 

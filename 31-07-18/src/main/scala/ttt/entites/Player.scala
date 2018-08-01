@@ -55,11 +55,13 @@ case object GameOver extends Message
 
 
 class Player extends Actor with TicTacToeMapper {
+
   override def receive: PartialFunction[Any, Unit] = {
     case Play(playStep, actor) => actor ! playStep
-    case ttf: TicTacToeMap => printMapInArray(ttf.map)
-    case paf: PlaceAlreadyFilled => print("Oh! This place is taken.")
-    case go: Boolean => sender() ! PoisonPill
+    case ticTacToeMap: TicTacToeMap => printMapInArray(ticTacToeMap.map)
+    case placeAlreadyFilled: PlaceAlreadyFilled => print("Oh! This place is taken.")
+    //case go: Boolean => sender() ! PoisonPill
+     case GameOver => println(" Game over ")
   }
 
 }
@@ -71,23 +73,28 @@ class Game extends Actor with TicTacToeLogic {
 
   override def receive: PartialFunction[Any, Unit] = {
     case PlayStep(index, player) => {
-      if(index-1 < 0 || index-1 > 8){
-        println("Invalid Index.")
+
+      if((index-1)<0 || index-1>9){
+        println("Invalid State")
+        //println(TicTacToeMap(map))
         sender() ! TicTacToeMap(map)
-      }
-      else if(map(index-1) == 0){
-        map( index - 1 ) = player
-        if(isGameOver(map)) {
-          println( "Game Over! You Lost!" )
-          sender() ! isGameOver( map )
-        }
-        else {
-          sender() ! TicTacToeMap( map )
-        }
-      }
-      else {
-        println("Field Already Filled.")
+
+      }else if(map(index-1)!=0){
+        println("Place is allready Filled")
+
+        //sender() ! PlaceAlreadyFilled
         sender() ! TicTacToeMap(map)
+
+      }else{
+        map(index-1)=player
+
+        if(isGameOver(map)){
+          println("Game Over")
+          sender() ! isGameOver(map)
+        sender() ! TicTacToeMap(map)
+        }
+        else
+          sender() ! TicTacToeMap(map)
       }
     }
   }
