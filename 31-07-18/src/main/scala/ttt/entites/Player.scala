@@ -1,6 +1,7 @@
 package ttt.entites
 
-import akka.actor.{Actor, ActorRef,PoisonPill}
+import akka.actor.{Actor, ActorRef, PoisonPill}
+import ttt.entites
 
 trait TicTacToeMapper {
   def printMapInArray(elements:Array[Int]):Unit = {
@@ -90,8 +91,9 @@ class Game extends Actor with TicTacToeLogic {
 
         if(isGameOver(map)){
           println("Game Over")
-          sender() ! isGameOver(map)
+         // sender() ! isGameOver(map)
         sender() ! TicTacToeMap(map)
+          sender()! GameOver
         }
         else
           sender() ! TicTacToeMap(map)

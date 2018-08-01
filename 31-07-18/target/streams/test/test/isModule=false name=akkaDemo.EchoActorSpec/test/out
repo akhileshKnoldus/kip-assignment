@@ -1,15 +1,3 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mEchoActorSpec:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m An EchoActor[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- should respond with the msg it receives *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.AssertionError: assertion failed: timeout (3 seconds) during expectMsg while waiting for Hello[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.assert(Predef.scala:219)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.testkit.TestKitBase.expectMsg_internal(TestKit.scala:402)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.testkit.TestKitBase.expectMsg(TestKit.scala:379)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.testkit.TestKitBase.expectMsg$(TestKit.scala:379)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at akka.testkit.TestKit.expectMsg(TestKit.scala:896)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at akkaDemo.EchoActorSpec.$anonfun$new$2(EchoActorSpec.scala:16)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf(OutcomeOf.scala:85)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf.outcomeOf$(OutcomeOf.scala:83)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at org.scalatest.Transformer.apply(Transformer.scala:22)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should respond with the msg it receives[0m[0m
