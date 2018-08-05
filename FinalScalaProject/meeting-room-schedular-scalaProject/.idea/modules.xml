@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/admin.iml" filepath="$PROJECT_DIR$/.idea/modules/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/admin-build.iml" filepath="$PROJECT_DIR$/.idea/modules/admin-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/db.iml" filepath="$PROJECT_DIR$/.idea/modules/db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/db-build.iml" filepath="$PROJECT_DIR$/.idea/modules/db-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/login.iml" filepath="$PROJECT_DIR$/.idea/modules/login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/login-build.iml" filepath="$PROJECT_DIR$/.idea/modules/login-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/signUp.iml" filepath="$PROJECT_DIR$/.idea/modules/signUp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/signUp-build.iml" filepath="$PROJECT_DIR$/.idea/modules/signUp-build.iml" />
+    </modules>
+  </component>
+</project>
